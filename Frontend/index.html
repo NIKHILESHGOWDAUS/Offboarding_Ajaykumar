@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee Offboarding Form</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffffff;
       margin: 0;
+      padding: 20px;
     }
 
     header {
@@ -98,7 +97,7 @@
     .form-container {
       background-color: #ffffff;
       border-radius: 8px;
-      padding: 20px;
+      padding: 30px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       max-width: 900px;
       margin: 0 auto;
@@ -107,30 +106,40 @@
     h2 {
       font-size: 24px;
       color: #333;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       display: flex;
       align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
     }
 
     h2 i {
-      margin-right: 10px;
+      margin-right: 12px;
       color: #30066e;
     }
 
     label {
-      font-size: 20px;
-      margin-bottom: 8px;
+      font-size: 18px;
+      margin-bottom: 12px;
       display: block;
       color: #212121;
+      font-weight: 500;
     }
 
     input, select, textarea {
       width: 97%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 19px;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #6a11cb;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
     }
 
     textarea {
@@ -140,17 +149,24 @@
 
     select {
       width: 99.5%;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 15px;
     }
 
     .section {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       background: linear-gradient(rgba(232, 232, 255, 0.763), rgba(255, 223, 255, 0.772));
-      padding: 20px;
+      padding: 25px;
+      border-radius: 8px;
     }
 
     .submit-section {
       display: flex;
       justify-content: center;
+      margin-top: 30px;
     }
 
     button {
@@ -226,7 +242,7 @@
 
     .modal-content {
       background: #fff;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
       max-width: 500px;
       width: 90%;
@@ -235,19 +251,25 @@
     }
 
     .modal-content h3 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #333;
+      font-size: 22px;
+    }
+
+    .modal-content p {
+      margin-bottom: 25px;
+      font-size: 16px;
     }
 
     .modal-buttons {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 15px;
     }
 
     .modal-buttons button {
       width: 120px;
-      margin: 10px;
+      margin: 0;
     }
 
     .toast {
@@ -256,7 +278,7 @@
       right: 20px;
       background: linear-gradient(135deg, #38b000, #00b4d8);
       color: #fff;
-      padding: 1rem 1.5rem;
+      padding: 15px 20px;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       display: flex;
@@ -275,27 +297,48 @@
     }
 
     .toast i {
-      margin-right: 0.5rem;
+      margin-right: 10px;
       font-size: 1.2rem;
+    }
+
+    .error-message {
+      color: #e63946;
+      font-size: 0.9rem;
+      margin: -15px 0 15px 0;
+      display: none;
     }
 
     @media screen and (max-width: 1024px) {
       body {
-        padding: 20px;
-      }
-
-      .form-container {
-        max-width: 100%;
         padding: 15px;
       }
 
+      .form-container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 16px;
+      }
+
       input, select, textarea {
-        font-size: 17px;
+        font-size: 15px;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      .section {
+        padding: 20px;
+        margin-bottom: 30px;
       }
 
       button {
-        width: 260px;
-        font-size: 16px;
+        width: 280px;
       }
     }
 
@@ -305,63 +348,38 @@
       }
 
       header {
-        width: 100%;
         padding: 15px;
       }
 
       header h1 {
-        font-size: 28px;
+        font-size: 24px;
       }
 
       header p {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .form-container {
-        width: 100%;
-        padding: 10px;
-      }
-
-      h2 {
-        font-size: 22px;
-      }
-
-      label {
-        font-size: 18px;
-      }
-
-      input, select, textarea {
-        font-size: 16px;
-        padding: 8px;
-      }
-
-      select {
-        width: 100%;
-      }
-
-      .section {
         padding: 15px;
       }
 
+      h2 {
+        font-size: 20px;
+        margin-bottom: 18px;
+      }
+
+      .section {
+        padding: 18px;
+        margin-bottom: 25px;
+      }
+
       button {
-        width: 80%;
-        font-size: 15px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        max-width: 280px;
       }
     }
 
     @media screen and (max-width: 480px) {
-      body {
-        padding: 10px;
-      }
-
-      header {
-        width: 98%;
-        padding: 10px;
-        border-radius: 10px;
-      }
-
       header h1 {
         font-size: 20px;
       }
@@ -371,35 +389,29 @@
       }
 
       h2 {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       label {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 8px;
       }
 
       input, select, textarea {
-        font-size: 15px;
-        padding: 7px;
+        padding: 8px;
+        margin-bottom: 12px;
       }
 
       .section {
-        padding: 10px;
+        padding: 15px;
       }
 
-      button {
-        width: 90%;
-        font-size: 16px;
+      .error-message {
+        margin: -10px 0 10px 0;
       }
-    }
-
-    .error-message {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 5px;
-      display: none;
     }
   </style>
+
 </head>
 <body>
   <header>
@@ -417,20 +429,20 @@
       <div class="section">
         <h2><i class="fas fa-user"></i> Employee Information</h2>
         <label for="employee-name">Full Name</label>
-        <input type="text" id="employee-name" name="employee-name" required minlength="3" maxlength="100"
+        <input type="text" id="employee-name" name="employee-name" required minlength="3" maxlength="40"
                pattern="^[A-Za-z]+(?:\.[A-Za-z]+)*(?: [A-Za-z]+)*(?:\.[A-Za-z]+){0,3}$"
                placeholder="Enter Full Name" title="Name cannot start with a space, no consecutive spaces allowed, maximum 8 spaces and 3 periods allowed.">
         <span id="name-error" class="error-message"></span>
 
         <label class="required" for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email address" minlength="5"
-               maxlength="40" title="Please enter a valid email address">
+        <input type="email" id="email" name="email" required placeholder="Enter your email address" 
+               oninput="this.value = this.value.trim()">
         <span id="email-error" class="error-message"></span>
 
         <label for="employee-id">Employee ID</label>
         <input type="text" id="employee-id" name="employee-id" required minlength="7" maxlength="7"
-               placeholder="Enter Employee ID" pattern="^[ATS]{3}0(?!000)[0-9]{3}$"
-               title="Employee ID should be in the format: 3 uppercase letters followed by 4 digits, starting from 0001 (cannot be 0000)">
+               placeholder="Enter Employee ID" pattern="^ATS0(?!000)[0-9]{3}$"
+               title="Employee ID should be in the format: ATS followed by 4 digits, starting from 0001 (cannot be 0000)">
         <span id="id-error" class="error-message"></span>
 
         <label for="employee-department">Department</label>
@@ -480,7 +492,7 @@
       <div class="section">
         <h2><i class="fas fa-rupee-sign"></i> Final Paycheck Details</h2>
         <label for="final-paycheck">Final Paycheck Amount</label>
-        <input type="number" id="final-paycheck" name="final-paycheck" placeholder="Enter Final Paycheck Amount" required min="1000" max="100000" step="500">
+        <input type="number" id="final-paycheck" name="final-paycheck" placeholder="Enter Final Paycheck Amount" required min="1000" max="100000" step="0.001" pattern="^\d+(\.\d{1,3})?$">
         <span id="paycheck-error" class="error-message"></span>
 
         <label for="benefits-cleared">Benefits Cleared</label>
@@ -541,34 +553,82 @@
       }
 
       function validateName() {
-        const employeeName = document.getElementById('employee-name').value.trim();
+        const employeeName = document.getElementById('employee-name').value;
+        const trimmedName = employeeName.trim();
         const namePattern = /^[A-Za-z]+(?:\.[A-Za-z]+)*(?: [A-Za-z]+)*(?:\.[A-Za-z]+){0,3}$/;
-        if (employeeName.length < 3 || employeeName.length > 100 || !namePattern.test(employeeName)) {
-          showErrorMessage('name-error', "Invalid Name: Must be 3-100 characters, no leading/trailing spaces, max 3 periods.");
-          return false;
-        } else {
-          showErrorMessage('name-error', '');
-          return true;
+        const consecutiveSpacesPattern = /\s{2,}/;
+
+        if (employeeName !== trimmedName) {
+            showErrorMessage('name-error', "Name cannot have leading or trailing spaces.");
+            return false;
         }
+
+        if (consecutiveSpacesPattern.test(trimmedName)) {
+            showErrorMessage('name-error', "Name cannot contain consecutive spaces.");
+            return false;
+        }
+
+        if (trimmedName.length < 3 || trimmedName.length > 40 || !namePattern.test(trimmedName)) {
+            showErrorMessage('name-error', "Invalid Name: Must be 3-40 characters, no consecutive spaces, max 3 periods.");
+            return false;
+        }
+
+        showErrorMessage('name-error', '');
+        return true;
       }
 
       function validateEmail() {
-        const email = document.getElementById('email').value.trim();
-        const emailPattern = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,3}$/;
-        if (!emailPattern.test(email)) {
-          showErrorMessage('email-error', 'Please enter a valid email address.');
-          return false;
-        } else {
-          showErrorMessage('email-error', '');
-          return true;
+        const email = document.getElementById('email').value;
+        const trimmedEmail = email.trim();
+        const parts = trimmedEmail.split('@');
+        
+        if (email !== trimmedEmail) {
+            showErrorMessage('email-error', 'Email cannot contain leading or trailing spaces.');
+            return false;
         }
+        
+        if (parts.length !== 2) {
+            showErrorMessage('email-error', 'Email must contain exactly one @ symbol.');
+            return false;
+        }
+        
+        const localPart = parts[0];
+        const domain = parts[1];
+        
+        if (!/^[a-zA-Z]/.test(localPart)) {
+            showErrorMessage('email-error', 'Email must start with an alphabet.');
+            return false;
+        }
+        
+        if (!/^[a-zA-Z.]+$/.test(localPart)) {
+            showErrorMessage('email-error', 'Only alphabets and periods allowed before @.');
+            return false;
+        }
+        
+        if (/(^\.|\.\.|\.$)/.test(localPart)) {
+            showErrorMessage('email-error', 'Email cannot have leading, trailing, or consecutive periods.');
+            return false;
+        }
+        
+        if ((localPart.match(/\./g) || []).length > 3) {
+            showErrorMessage('email-error', 'Email can contain maximum 3 periods.');
+            return false;
+        }
+        
+        if (domain !== 'astrolitetech.com') {
+            showErrorMessage('email-error', 'Only @astrolitetech.com domain is allowed.');
+            return false;
+        }
+        
+        showErrorMessage('email-error', '');
+        return true;
       }
 
       function validateEmployeeId() {
         const employeeId = document.getElementById('employee-id').value.trim();
-        const idPattern = /^[ATS]{3}0(?!000)[0-9]{3}$/;
+        const idPattern = /^ATS0(?!000)[0-9]{3}$/;
         if (!idPattern.test(employeeId)) {
-          showErrorMessage('id-error', "Invalid Employee ID: Format should be ABC0123.");
+          showErrorMessage('id-error', "Invalid Employee ID: Must start with ATS followed by 4 digits (e.g., ATS0123)");
           return false;
         } else {
           showErrorMessage('id-error', '');
@@ -578,13 +638,21 @@
 
       function validatePaycheck() {
         const paycheck = document.getElementById('final-paycheck').value.trim();
-        if (paycheck < 1000 || paycheck > 100000) {
+        const paycheckPattern = /^\d+(\.\d{1,3})?$/;
+        
+        if (!paycheckPattern.test(paycheck)) {
+          showErrorMessage('paycheck-error', "Invalid amount format. Maximum 3 decimal places allowed.");
+          return false;
+        }
+        
+        const amount = parseFloat(paycheck);
+        if (amount < 1000 || amount > 100000) {
           showErrorMessage('paycheck-error', "Paycheck must be between 1000 and 100000.");
           return false;
-        } else {
-          showErrorMessage('paycheck-error', '');
-          return true;
         }
+        
+        showErrorMessage('paycheck-error', '');
+        return true;
       }
 
       function validateExitInterview() {
@@ -643,14 +711,14 @@
           laptopReturned: document.getElementById('laptop-returned').value,
           phoneReturned: document.getElementById('phone-returned').value,
           accessCardsReturned: document.getElementById('access-cards').value,
-          finalPaycheck: parseInt(document.getElementById('final-paycheck').value),
+          finalPaycheck: parseFloat(document.getElementById('final-paycheck').value),
           benefitsCleared: document.getElementById('benefits-cleared').value,
           exitInterview: document.getElementById('exit-interview').value.trim(),
           reasonForLeaving: document.getElementById('reason-for-leaving').value
         };
 
         try {
-          const response = await fetch('http://54.173.21.20:3555/api/offboarding/submit', {
+          const response = await fetch('http://3.82.93.13:3634/api/offboarding/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
@@ -679,8 +747,6 @@
       cancelSubmit.addEventListener('click', () => {
         confirmModal.style.display = 'none';
       });
-
-      
 
       document.getElementById('employee-name').addEventListener('input', validateName);
       document.getElementById('email').addEventListener('input', validateEmail);

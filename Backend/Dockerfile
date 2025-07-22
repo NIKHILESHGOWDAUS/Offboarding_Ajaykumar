@@ -1,3 +1,4 @@
+
 FROM node:18
 
 WORKDIR /app
@@ -7,7 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3555
+EXPOSE 3634
 
 CMD ["node", "server.js"]
-
